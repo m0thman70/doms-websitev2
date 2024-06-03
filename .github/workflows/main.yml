@@ -1,42 +1,15 @@
-name: Build and deploy to GitHub Pages
-
-on:
-  push:
-    branches: ["master"]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
+on: push
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/main'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-            lfs: true
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Build using Zola
+      - name: 'checkout'
+        uses: actions/checkout@v4
+      - name: 'build'
         uses: shalzz/zola-deploy-action@v0.18.0
         env:
-          BUILD_DIR: '.'
-          BUILD_ONLY: true
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+          PAGES_BRANCH: gh-pages
+          BUILD_DIR: .
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # BUILD_ONLY: true
