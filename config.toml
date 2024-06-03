@@ -1,4 +1,4 @@
-base_url = "https://not-matthias.github.io/apollo/"
+base_url = "https://m0thman70.github.io/doms-websitev2/"
 title = "Dom"
 description = "I still dont know how to make a website"
 build_search_index = false
@@ -30,6 +30,9 @@ menu = [
 socials = [
     { name = "twitter", url = "https://twitter.com/not_matthias", icon = "twitter" },
     { name = "github", url = "https://github.com/not-matthias/", icon = "github" },
+    { name = "codeberg", url = "https://codeberg.org", icon = "codeberg"}
+    { name = "youtube", url = "https://codeberg.org", icon = "youtube"}
+    { name = "twitch", url = "https://codeberg.org", icon = "twitch"}
 ]
 
 custom_css = []
