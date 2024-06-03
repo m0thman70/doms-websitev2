@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 author = "cydave"
 title = "PaperMod"
 base_url = "https://cydave.github.io/zola-theme-papermod"
 compile_sass = true
+=======
+base_url = "https://m0thman70.github.io/doms-websitev2/"
+title = "Dom"
+description = "I still dont know how to make a website"
+>>>>>>> f43f9ac4c903161c76a23316b437f106dc235453
 build_search_index = false
 generate_feed = true
 minify_html = true
@@ -42,6 +48,7 @@ navigation = [
     { url = "https://getzola.com/", title = "Zola", is_external = true }
 ]
 
+<<<<<<< HEAD
 home_title = "PaperMod"
 home_content = "Welcome to a demo of the PaperMod theme!<br><b>PaperMod</b> is a simple but fast and responsive theme with a useful feature-set that enhances UX.<br>Do give a 🌟 on Github !<br>PaperMod is based on the hugo-PaperMod theme."
 social_icons = [
@@ -49,4 +56,12 @@ social_icons = [
     { url = "https://infosec.exchange/@cydave", title = "Mastodon", icon = "mastodon" },
     { url = "https://twitter.com/_cydave", title = "Twitter", icon = "twitter" },
     { url = "$BASE_URL/atom.xml", title = "RSS", icon = "instagram" },
+=======
+socials = [
+    { name = "twitter", url = "https://twitter.com/not_matthias", icon = "twitter" },
+    { name = "github", url = "https://github.com/not-matthias/", icon = "github" },
+    { name = "codeberg", url = "https://codeberg.org", icon = "codeberg"},
+    { name = "youtube", url = "https://codeberg.org", icon = "youtube"},
+    { name = "twitch", url = "https://codeberg.org", icon = "twitch"},
+>>>>>>> f43f9ac4c903161c76a23316b437f106dc235453
 ]
