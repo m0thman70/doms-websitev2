@@ -1,3 +1,5 @@
+@import "variables";
+
 @mixin clearfix {
   *zoom: 1;
   &:before,
