@@ -1,5 +1,5 @@
 +++
-title = "First Post"
+title = "New Website 👀"
 date = "2024-06-03"
 [taxodomies]
 tags = ["new page"]
