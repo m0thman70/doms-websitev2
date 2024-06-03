@@ -1,168 +1,78 @@
-{% import "macros/macros.html" as post_macros %}
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    {% if page.extra.meta %}
-         <!-- the meta data config goes here  -->
-         {% for data in page.extra.meta %}
-             <meta
-                 {% for key, value in data%}
-                     {% if key == "property" and value == "og:title"%}
-                         {% set_global page_has_og_title = true -%}
-                     {% endif %}
-                     {% if key == "property" and value == "og:description"%}
-                         {% set_global page_has_og_description = true -%}
-                     {% endif %}
-                     {% if key == "name" and value == "description"%}
-                         {% set_global page_has_description = true -%}
-                     {% endif %}
-                     {{ key }}="{{ value }}"
-                {% endfor %}
-            />
-        {% endfor %}
-    {% endif %}
-
-    {# Site title #}
-    {% set current_path = current_path | default(value="/") %}
-    {% if current_path == "/" %}
-    <title>
-        {{ config.title | default(value="Home") }}
-    </title>
-    {% if not page_has_og_title %}
-        <meta property="og:title" content="{{ config.title | default(value="Home") }}" />
-    {% endif %}
-
-    {% else %}
-    <title>
-        {% if page.title %} {{ page.title }}
-        {% elif section.title %} {{ section.title }}
-        {% elif config.title %} {{ config.title }}
-        {% else %} Post {% endif %}
-    </title>
-
-        {% if not page_has_og_title %}
-            <meta property="og:title" content="{% if page.title -%}{{ page.title }}{% elif config.title -%}{{ config.title }}{% else -%}Post{% endif -%}" />
+{% if config.extra.papermod.default_theme == "light" %}
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+</script>
+{% elif config.extra.papermod.default_theme == "dark" %}
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+</script>
+{% else %}
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+{% endif %}
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="{{ config.base_url }}" accesskey="h" title="{{ config.extra.papermod.title }} (Alt + H)">
+                {%- if config.extra.papermod.icon %}<img src="{{ get_url(path=config.extra.papermod.icon) }}" alt="logo" aria-label="logo" height="30px">{%- endif %}
+                {{ config.extra.papermod.title }}
+            </a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch">
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        {% if config.extra.papermod.navigation %}
+        <ul id="menu">
+            {% for item in config.extra.papermod.navigation %}
+            {% set url = item.url | replace(from='$BASE_URL', to=config.base_url) %}
+            {% set is_active_link = current_url and url | trim_end_matches(pat="/") == current_url | trim_end_matches(pat="/") %}
+            <li>
+                <a href="{{ url }}" title="{{ item.title }}">
+                    <span{% if is_active_link %} class="active"{% endif %}>{{ item.title }}</span>
+                    {% if item.is_external and item.is_external == true %}
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                    {% endif %}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
         {% endif %}
-     {% endif %}
-
-     {% if not page_has_og_description %}
-         {% if page.description %}
-             <meta property="og:description" content="{{ page.description }}" />
-         {% elif config.description %}
-             <meta property="og:description" content="{{ config.description }}" />
-         {% endif %}
-     {% endif %}
-
-     {% if not page_has_description %}
-         {% if page.description %}
-             <meta name="description" content="{{ page.description }}" />
-         {% elif config.description %}
-             <meta name="description" content="{{ config.description }}" />
-         {% endif %}
-    {% endif %}
-
-    {# Favicon #}
-    {% if config.extra.favicon %}
-        <link rel="icon" type="image/png" href={{ config.extra.favicon }} />
-    {% endif %}
-
-    {# Font from cdn or disk #}
-    {% if config.extra.use_cdn | default(value=false) %}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@4.5.8/index.min.css">
-    {% else %}
-        <link href={{ get_url(path="fonts.css") }} rel="stylesheet" />
-    {% endif %}
-
-    {# Analytics #}
-    {% if config.extra.analytics.enabled %}
-        {% if config.extra.analytics.umami.website_id %}
-            {% set website_id = config.extra.analytics.umami.website_id %}
-            {% set host_url = config.extra.analytics.umami.host_url | default(value="https://analytics.eu.umami.is") %}
-
-            <script>
-                (function () {
-                  var el = document.createElement('script');
-                  el.setAttribute('src', '/js/imamu.js');
-                  el.setAttribute('data-website-id', '{{ website_id }}');
-                  el.setAttribute('data-host-url', '{{ host_url }}');
-                  document.body.appendChild(el);
-                })();
-              </script>
-            <script async src="/js/imamu.js" data-website-id="{{ website_id }}" data-host-url="{{ host_url }}"></script>
-        {% endif %}
-
-        {% if config.extra.analytics.goatcounter.user %}
-            {% set user = config.extra.analytics.goatcounter.user %}
-            {% set host = config.extra.analytics.goatcounter.host | default(value="goatcounter.com") %}
-
-            <script data-goatcounter="https://{{ user }}.{{ host }}/count" async src="{{ get_url(path="js/count.js") }}"></script>
-            <noscript>
-                {# EasyList blocks '.com/count?', so we have to use '.com//count' #}
-                <img src="https://{{ user }}.{{ host }}//count?p={{ current_path }}&t={{ page.title | default(value=config.title) }}">
-            </noscript>
-        {% endif %}
-    {% endif %}
-
-
-    {% if config.extra.mathjax | default(value=false) %}
-        {% if config.extra.mathjax_dollar_inline_enable | default(value=false) %}
-            <script>
-            MathJax = {
-              tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-              }
-            };
-            </script>
-        {% endif %}
-        <script type="text/javascript" id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-        </script>
-    {% endif %}
-
-    {# RSS #}
-    <link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
-
-
-    {% set theme = config.extra.theme %}
-    {% if theme == "dark" %}
-        <link rel="stylesheet" type="text/css" href="{{ get_url(path='theme/dark.css') }}" />
-    {% elif theme == "light" %}
-        <link rel="stylesheet" type="text/css" href={{ get_url(path="theme/light.css") }} />
-    {% elif theme == "auto" %}
-        <link rel="stylesheet" type="text/css" href={{ get_url(path="theme/light.css") }} />
-        <link rel="stylesheet" type="text/css" href="{{ get_url(path='theme/dark.css') }}" media="(prefers-color-scheme: dark)" />
-    {% elif theme == "toggle" %}
-        <link rel="stylesheet" type="text/css" href={{ get_url(path="theme/light.css") }} />
-        <link id="darkModeStyle" rel="stylesheet" type="text/css" href="{{ get_url(path='theme/dark.css') }}" />
-    {% endif %}
-    
-    <!-- Set the correct theme in the script -->
-    <script src={{ get_url(path="js/themetoggle.js") }}></script>
-    {% if theme == "dark" %}
-        <script>setTheme("dark");</script>
-    {% elif theme == "light" %}
-        <script>setTheme("light");</script>
-    {% elif theme == "auto" %}
-        <script>
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                setTheme("dark");
-            } else {
-                setTheme("light");
-            }
-        </script>
-    {% else %}
-        <script>setTheme(getSavedTheme());</script>
-    {% endif %}
-
-    <link rel="stylesheet" type="text/css" media="screen" href={{ get_url(path="main.css") }} />
-
-    {% if config.extra.stylesheets %}
-        {% for stylesheet in config.extra.stylesheets %}
-            <link rel="stylesheet" href="{{ get_url(path=stylesheet) }}">
-        {% endfor %}
-    {% endif %}
-</head>
+    </nav>
+</header>
