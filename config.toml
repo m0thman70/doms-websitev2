@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-author = "cydave"
-title = "PaperMod"
-base_url = "https://cydave.github.io/zola-theme-papermod"
-compile_sass = true
-=======
+author = "Dom"
+title = "Dom's website"
 base_url = "https://m0thman70.github.io/doms-websitev2/"
-title = "Dom"
-description = "I still dont know how to make a website"
->>>>>>> f43f9ac4c903161c76a23316b437f106dc235453
+compile_sass = true
 build_search_index = false
 generate_feed = true
 minify_html = true
@@ -25,7 +19,7 @@ highlight_code = true
 [extra]
 
 [extra.papermod]
-title = "PaperMod"
+title = "Dom"
 default_theme = "auto"
 theme = "light"
 language_direction = "auto"
@@ -39,29 +33,21 @@ show_post_nav_links = true
 show_post_meta = true
 default_toc_open = false
 show_post_edit_button = false
-edit_post_url = "https://github.com/cydave/zola-theme-papermod/tree/master"
+#edit_post_url = "https://github.com/cydave/zola-theme-papermod/tree/master"
 #copyright = ""
 date_format = "%Y-%m-%d"
 navigation = [
-    { url = "$BASE_URL/archive", title = "Archive" },
     { url = "$BASE_URL/tags", title = "Tags" },
     { url = "https://getzola.com/", title = "Zola", is_external = true }
 ]
 
-<<<<<<< HEAD
-home_title = "PaperMod"
-home_content = "Welcome to a demo of the PaperMod theme!<br><b>PaperMod</b> is a simple but fast and responsive theme with a useful feature-set that enhances UX.<br>Do give a 🌟 on Github !<br>PaperMod is based on the hugo-PaperMod theme."
+home_title = "Greetings, Im Dom"
+home_content = "<b>I still dont know how to make a website<b> <br>Brought to you by the Papermod zola theme by cydave"
 social_icons = [
-    { url = "https://github.com/cydave", title = "GitHub", icon = "github" },
-    { url = "https://infosec.exchange/@cydave", title = "Mastodon", icon = "mastodon" },
-    { url = "https://twitter.com/_cydave", title = "Twitter", icon = "twitter" },
-    { url = "$BASE_URL/atom.xml", title = "RSS", icon = "instagram" },
-=======
-socials = [
-    { name = "twitter", url = "https://twitter.com/not_matthias", icon = "twitter" },
-    { name = "github", url = "https://github.com/not-matthias/", icon = "github" },
-    { name = "codeberg", url = "https://codeberg.org", icon = "codeberg"},
-    { name = "youtube", url = "https://codeberg.org", icon = "youtube"},
-    { name = "twitch", url = "https://codeberg.org", icon = "twitch"},
->>>>>>> f43f9ac4c903161c76a23316b437f106dc235453
+    { url = "https://github.com/m0thman70", title = "GitHub", icon = "github" },
+    { url = "https://mastodon.social/@m0th05", title = "Mastodon", icon = "mastodon" },
+    { url = "https://www.youtube.com/@m0th543", title = "Youtube", icon = "youtube" },
+    { url = "https://codeberg.org", title = "codeberg", icon = "Codeberg" },
+    { url = "discordapp.com/users/496981575158988801", title = "Discord", icon = "discord" },
+    { url = "https://www.instagram.com/m0th05/", title = "Instgram", icon = "instagram" },
 ]
