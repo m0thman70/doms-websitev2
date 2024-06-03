@@ -30,9 +30,9 @@ menu = [
 socials = [
     { name = "twitter", url = "https://twitter.com/not_matthias", icon = "twitter" },
     { name = "github", url = "https://github.com/not-matthias/", icon = "github" },
-    { name = "codeberg", url = "https://codeberg.org", icon = "codeberg"}
-    { name = "youtube", url = "https://codeberg.org", icon = "youtube"}
-    { name = "twitch", url = "https://codeberg.org", icon = "twitch"}
+    { name = "codeberg", url = "https://codeberg.org", icon = "codeberg"},
+    { name = "youtube", url = "https://codeberg.org", icon = "youtube"},
+    { name = "twitch", url = "https://codeberg.org", icon = "twitch"},
 ]
 
 custom_css = []
