@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Dom&#x27;s website</title>
+    <link rel="self" type="application/atom+xml" href="https://m0thman70.github.io/doms-websitev2/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://m0thman70.github.io/doms-websitev2/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-06-03T00:00:00+00:00</updated>
+    <id>https://m0thman70.github.io/doms-websitev2/atom.xml</id>
+    <entry xml:lang="en">
+        <title>New Website 👀</title>
+        <published>2024-06-03T00:00:00+00:00</published>
+        <updated>2024-06-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Dom
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://m0thman70.github.io/doms-websitev2/posts/first-post/"/>
+        <id>https://m0thman70.github.io/doms-websitev2/posts/first-post/</id>
+        
+        <content type="html" xml:base="https://m0thman70.github.io/doms-websitev2/posts/first-post/">&lt;h1 id=&quot;welcome&quot;&gt;Welcome&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#welcome&quot; hidden=&quot;&quot;&gt;#&lt;&#x2F;a&gt;
+&lt;&#x2F;h1&gt;
+&lt;h3 id=&quot;this-is-the-new-site&quot;&gt;This is the new site!&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#this-is-the-new-site&quot; hidden=&quot;&quot;&gt;#&lt;&#x2F;a&gt;
+&lt;&#x2F;h3&gt;
+&lt;p&gt;I know I know it aint up to scratch and is very basic but the point is that it looks good and that it works. Not only that it is also now built with zola instead of hugo, there no reason for the decision, I was simply very bored.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;wip&quot;&gt;WIP&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#wip&quot; hidden=&quot;&quot;&gt;#&lt;&#x2F;a&gt;
+&lt;&#x2F;h3&gt;
+&lt;p&gt;Codeberg is missing a logo that i need to add once i figure out&lt;&#x2F;p&gt;
+&lt;p&gt;Change colours and such so its more vibrant and more fun i guess&lt;&#x2F;p&gt;
+&lt;p&gt;Get a better URL lol&lt;&#x2F;p&gt;
+&lt;p&gt;Anyway, thats all for this new website brought to you by Zola and the Papermod zola theme, take a look around enjoy the view.&lt;&#x2F;p&gt;
+&lt;p&gt;~ Dom&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
