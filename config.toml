@@ -1,6 +1,6 @@
 base_url = "https://not-matthias.github.io/apollo/"
-title = "not-matthias"
-description = "This is an example description"
+title = "Dom"
+description = "I still dont know how to make a website"
 build_search_index = false
 generate_feed = true
 compile_sass = true
