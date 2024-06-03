@@ -1,98 +1,16 @@
-name = "halve-z"
-description = "Retro two-column theme"
+name = "apollo"
+description = "Modern and minimalistic blog theme"
+min_version = "0.14.0"
 license = "MIT"
-homepage = "https://github.com/charlesrocket/halvez"
-min_version = "0.18.0"
-demo = "https://halve-z.netlify.app/"
+homepage = "https://github.com/not-matthias/apollo"
+demo = "https://not-matthias.github.io/apollo"
 
+# Any variable there can be overridden in the end user `config.toml`
+# You don't need to prefix variables by the theme name but as this will
+# be merged with user data, some kind of prefix or nesting is preferable
+# Use snake_casing to be consistent with the rest of Zola
 [extra]
-locale = "en_US"
-logo = "fireball.gif"
-manifest = ""
-read_time = false
-toc = true
-csp = false
-
-[extra.home]
-title = "Halve-Z"
-subtitle = "Zola theme"
-glitch = false
-logo = { enabled = true, height = "100", width = "100" }
-footer = true
-
-[extra.images]
-home = ""
-post_list = ""
-default_post = ""
-categories = []
-
-[extra.menu]
-posts = false
-links = [
-    #{ name = "Code", url = "@/pages/projects.md" },
-]
-
-[extra.footer]
-enabled = true
-copyright = true
-stack = true
-
-[extra.social]
-#email = ""
-#mastodon = ""
-#twitter = ""
-#facebook = ""
-#dribbble = ""
-#codepen = ""
-#steam = ""
-#soundcloud = ""
-#google_plus = ""
-#youtube = ""
-#tumblr = ""
-#pinterest = ""
-#foursquare = ""
-#xing = ""
-#weibo = ""
-#codeberg = ""
-#github = ""
-#gitlab = ""
-#bitbucket = ""
-#hackthebox = ""
-#stackoverflow = ""
-#linkedin = ""
-#instagram = ""
-#lastfm = ""
-#reddit = ""
-#twitch = ""
-#flickr = ""
-#keybase = ""
-#xmpp = ""
-#hackernews = ""
-
-[extra.comments]
-system = ""
-
-[extra.comments.cactus]
-site = ""
-page_size = 10
-guest_posting = true
-update_interval = 0
-
-[extra.comments.giscus]
-repo = ""
-repo_id = ""
-category = ""
-category_id = ""
-mapping = ""
-strict = "1"
-reactions = "0"
-lang = "en"
 
 [author]
-name = "-k"
-homepage = "https://failsafe.monster/"
-
-[original]
-author =  "Taylan Tatlı"
-homepage = "https://tatli.me/"
-repo = "https://github.com/TaylanTatli/Halve"
+name = "not-matthias"
+homepage = "https://github.com/not-matthias"

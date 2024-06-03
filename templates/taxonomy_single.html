@@ -1,16 +1,7 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 
-{% block right %}
-    <div class="inner-post content">
-      {% block date %}{{ super() }}{% endblock date%}
-      <div>
-        <u><h2>{{ term.name }}</h2></u>
-        {%- for year, posts in term.pages | group_by(attribute="year") %}
-          <h3>{{ year }}</h3>
-          {%- for page in posts %}
-            <h4><a href="{{ page.permalink | safe }}">{{ page.title | safe }}</a> <time datetime="{{ page.date }}">{{ page.date | date(format="%F") }}</time></h4>
-          {%- endfor %}
-        {%- endfor %}
-      </div>
-    </div>
-{% endblock right %}
+{% block main_content %}
+
+{{ post_macros::list_title(pages=term.pages, tag_name=term.name) }}
+
+{% endblock main_content %}
